@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Análisis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1>🎥 Resultados del Análisis</h1>
+    </header>
+
+    <main class="main-content">
+        <section class="results-section">
+            <h2>Errores en los Fotogramas</h2>
+            <ul>
+                {% if errors %}
+                    {% for error in errors %}
+                        <li>Tipo: {{ error.tipo }} - Descripción: {{ error.descripcion }}</li>
+                    {% endfor %}
+                {% else %}
+                    <p>No se encontraron errores en los fotogramas.</p>
+                {% endif %}
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Analizador de Videos. Diseñado con 💙</p>
+    </footer>
+</body>
+</html>

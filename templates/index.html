@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Videos</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>🎥 Analizador de Videos Inteligente</h1>
+            <p>Detecta errores de fotogramas y calidad de audio de manera rápida y precisa.</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="form-section">
+            <h2>Sube tu Video</h2>
+            <form id="video-form" action="{{ url_for('upload_video') }}" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="video-file">Cargar video:</label>
+                    <input type="file" id="video-file" name="video" accept="video/*" required>
+                    <small class="help-text">Formato permitido: MP4, AVI, MOV, MKV.</small>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Procesar Video</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="results-section" class="results-section hidden">
+            <h2>Resultados del Análisis</h2>
+            <div id="results" class="results-container"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2024 Analizador de Videos. Diseñado con 💙</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="static/script.js"></script>
+</body>
+
+</html>
